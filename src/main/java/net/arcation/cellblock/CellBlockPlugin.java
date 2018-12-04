@@ -4,6 +4,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import net.arcation.cellblock.api.CellBlockManager;
 import net.arcation.cellblock.api.CellItemManager;
+import net.arcation.cellblock.listener.DamageListener;
 import net.arcation.cellblock.listener.RespawnListener;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,7 +18,7 @@ public class CellBlockPlugin extends JavaPlugin {
     public void onEnable() {
         final Injector injector = Guice.createInjector(new CellBlockModule(this));
 
-        this.getServer().getPluginManager().registerEvents(injector.getInstance(RespawnListener.class), this);
+        this.getServer().getPluginManager().registerEvents(injector.getInstance(DamageListener.class), this);
 
         System.out.println("Enabled FUCK1");
     }
